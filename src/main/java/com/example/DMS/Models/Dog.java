@@ -1,16 +1,25 @@
 package com.example.DMS.Models;
-/**
- * author Poojitha Naradasu
- */
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
+/**
+ * 
+ * @author Poojitha Naradasu
+ */
 @Entity
 public class Dog {
+	
 	@Id
 	private int id;
 	private String name;
 	private String breed;
+	
+	@ManyToOne
+	private Trainer trainer;
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -29,9 +38,27 @@ public class Dog {
 	public void setBreed(String breed) {
 		this.breed = breed;
 	}
+	
+	
+	
+	
+	
+	
+	public Trainer getTrainer() {
+		return trainer;
+	}
+	public void setTrainer(Trainer trainer) {
+		this.trainer = trainer;
+	}
 	@Override
 	public String toString() {
-		return "Dog [id=" + id + ", name=" + name + ", breed=" + breed + "]";
+		return "Dog [id=" + id + ", name=" + name + ", breed=" + breed + ", trainer=" + trainer + "]";
 	}
+	
+	
+	
 
+	
+	
+	
 }
